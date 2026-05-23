@@ -1,19 +1,34 @@
-const bookingMessage = document.getElementById("booking-message");
+const popup = document.getElementById("popup");
+const closeBtn = document.getElementById("close-btn");
+const bookingMessage =
+document.getElementById("booking-message");
 
-document.getElementById("concert-btn")
-.addEventListener("click", function () {
-    bookingMessage.textContent =
-    "🎵 Music Concert booked successfully!";
+const buttons =
+document.querySelectorAll(".event-card button");
+
+buttons.forEach(button => {
+    button.addEventListener("click", function () {
+        popup.style.display = "flex";
+    });
 });
 
-document.getElementById("tech-btn")
-.addEventListener("click", function () {
-    bookingMessage.textContent =
-    "💻 Tech Conference booked successfully!";
+closeBtn.addEventListener("click", function () {
+    popup.style.display = "none";
 });
 
-document.getElementById("food-btn")
+document.getElementById("confirm-booking")
 .addEventListener("click", function () {
+
+    const name =
+    document.getElementById("name").value;
+
+    if (name === "") {
+        alert("Please enter your name");
+        return;
+    }
+
     bookingMessage.textContent =
-    "🍔 Food Festival booked successfully!";
+    `✅ Booking confirmed for ${name}!`;
+
+    popup.style.display = "none";
 });
