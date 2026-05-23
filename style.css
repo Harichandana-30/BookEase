@@ -153,3 +153,21 @@ body {
 .event-card button:hover {
     transform: scale(1.05);
 }
+
+/* Booking Confirmation */
+.confirmation {
+    text-align: center;
+    padding: 60px 20px;
+    background: #ffffff;
+}
+
+.confirmation h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#booking-message {
+    font-size: 20px;
+    color: #4CAF50;
+    font-weight: bold;
+}
