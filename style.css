@@ -293,3 +293,38 @@ body {
     font-size: 18px;
     outline: none;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    #search-input {
+        width: 90%;
+    }
+
+    .event-card {
+        width: 90%;
+    }
+
+    .popup-content {
+        width: 90%;
+    }
+}
