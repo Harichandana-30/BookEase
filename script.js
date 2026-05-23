@@ -88,3 +88,28 @@ darkModeBtn.addEventListener("click", function () {
         "dark-mode"
     );
 });
+
+const searchInput =
+document.getElementById("search-input");
+
+searchInput.addEventListener("keyup", function () {
+
+    const searchValue =
+    searchInput.value.toLowerCase();
+
+    const eventCards =
+    document.querySelectorAll(".event-card");
+
+    eventCards.forEach(card => {
+
+        const eventName =
+        card.querySelector("h3")
+        .textContent.toLowerCase();
+
+        if (eventName.includes(searchValue)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
