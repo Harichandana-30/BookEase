@@ -16,19 +16,40 @@ closeBtn.addEventListener("click", function () {
     popup.style.display = "none";
 });
 
+// Load saved booking
+const savedBooking =
+localStorage.getItem("booking");
+
+if (savedBooking) {
+    bookingMessage.textContent =
+    savedBooking;
+}
+
 document.getElementById("confirm-booking")
 .addEventListener("click", function () {
 
     const name =
     document.getElementById("name").value;
 
+    const tickets =
+    document.getElementById("tickets").value;
+
     if (name === "") {
         alert("Please enter your name");
         return;
     }
 
+    const message =
+    `✅ Booking confirmed for ${name} (${tickets} ticket(s))`;
+
     bookingMessage.textContent =
-    `✅ Booking confirmed for ${name}!`;
+    message;
+
+    // Save booking
+    localStorage.setItem(
+        "booking",
+        message
+    );
 
     popup.style.display = "none";
 });
