@@ -132,3 +132,24 @@ body {
 .event-card button:hover {
     background: #45a049;
 }
+
+/* Event Images */
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.event-card {
+    overflow: hidden;
+}
+
+.event-card button {
+    transition: 0.3s;
+}
+
+.event-card button:hover {
+    transform: scale(1.05);
+}
