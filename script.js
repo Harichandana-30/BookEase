@@ -3,27 +3,38 @@ const closeBtn = document.getElementById("close-btn");
 const bookingMessage =
 document.getElementById("booking-message");
 
+const bookingList =
+document.getElementById("booking-list");
+
 const buttons =
 document.querySelectorAll(".event-card button");
 
+let selectedEvent = "";
+
+// Open popup
 buttons.forEach(button => {
     button.addEventListener("click", function () {
+
+        selectedEvent =
+        button.parentElement.querySelector("h3")
+        .textContent;
+
         popup.style.display = "flex";
     });
 });
 
+// Close popup
 closeBtn.addEventListener("click", function () {
     popup.style.display = "none";
 });
 
-// Load saved booking
-const savedBooking =
-localStorage.getItem("booking");
+// Load saved bookings
+const savedBookings =
+JSON.parse(localStorage.getItem("bookings")) || [];
 
-if (savedBooking) {
-    bookingMessage.textContent =
-    savedBooking;
-}
+savedBookings.forEach(booking => {
+    addBookingToUI(booking);
+});
 
 document.getElementById("confirm-booking")
 .addEventListener("click", function () {
@@ -39,17 +50,31 @@ document.getElementById("confirm-booking")
         return;
     }
 
-    const message =
-    `✅ Booking confirmed for ${name} (${tickets} ticket(s))`;
+    const bookingText =
+    `✅ ${name} - ${selectedEvent} (${tickets} ticket(s))`;
 
     bookingMessage.textContent =
-    message;
+    `Booking confirmed for ${name}!`;
 
-    // Save booking
+    addBookingToUI(bookingText);
+
+    savedBookings.push(bookingText);
+
     localStorage.setItem(
-        "booking",
-        message
+        "bookings",
+        JSON.stringify(savedBookings)
     );
 
     popup.style.display = "none";
 });
+
+// Add booking to page
+function addBookingToUI(text) {
+
+    const li =
+    document.createElement("li");
+
+    li.textContent = text;
+
+    bookingList.appendChild(li);
+}

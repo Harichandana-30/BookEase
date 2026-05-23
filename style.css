@@ -220,3 +220,29 @@ body {
     font-size: 28px;
     cursor: pointer;
 }
+
+/* Booking History */
+.booking-history {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.booking-history h2 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+#booking-list {
+    list-style: none;
+    max-width: 600px;
+    margin: auto;
+}
+
+#booking-list li {
+    background: white;
+    margin: 15px 0;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    font-size: 18px;
+}
