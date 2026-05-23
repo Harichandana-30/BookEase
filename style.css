@@ -246,3 +246,34 @@ body {
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     font-size: 18px;
 }
+
+/* Dark Mode */
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+.dark-mode .navbar {
+    background: #1e1e1e;
+}
+
+.dark-mode .event-card,
+.dark-mode .popup-content,
+.dark-mode #booking-list li,
+.dark-mode .confirmation {
+    background: #1f1f1f;
+    color: white;
+}
+
+.dark-mode .nav-links a {
+    color: white;
+}
+
+#dark-mode-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
